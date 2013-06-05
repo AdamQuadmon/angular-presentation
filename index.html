@@ -111,12 +111,22 @@
                         </code></pre>
                     </section>
                     <section>
-                        <h2>Etats</h2>
+                        <h2>Etat</h2>
                         <ul>
                             <li class="fragment">$pristine</li>
                             <li class="fragment">$dirty</li>
                             <li class="fragment">$valid</li>
-                            <li class="fragment">$invalid</li></ul>
+                            <li class="fragment">$invalid</li>
+                            <li class="fragment">$error</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Validation manuelle</h2>
+                        <p>$setValidity(validationErrorKey, isValid)</p>
+                        <ul>
+                            <li>validationErrorKey : nom de la règle de validation</li>
+                            <li>isValid : true ou false</li>
+                        </ul>
                     </section>
                     <section>
                         <h2>{{ DEMO }}</h2>
@@ -125,165 +135,32 @@
 
                 <section>
                     <section>
-                        <p>hello</p>
-                        <p class="fragment">HELLO</p>
+                        <h2>form</h2>
                     </section>
                     <section>
-                        <p>1368730200</p>
-                        <p class="fragment">Jeudi 16 mai 2013 20H50</p>
-                    </section>
-                    <section>
-                        <p>1234.562342</p>
-                        <p class="fragment">1 234,56 €</p>
-                    </section>
-                    <section>
-                        <p>[Thierry, David, Nelly, Alex, Claire]</p>
-                        <p class="fragment">[Alex, Claire, David, Nelly, Thierry]</p>
-                    </section>
-                    <section>
-                        <p>[pommes, pâtes, farine, PQ]</p>
-                        <p class="fragment">[PQ]</p>
-                    </section>
-                    <section>
-                        <h2>Transformer la donnée pour l'afficher à l'utilisateur</h2>
-                    </section>
-                    <br><br><br>
-                    <h3>formater, convertir, filtrer, trier, transformer</h3>
-                </section>
-
-                <section>
-                    <section>
-                        <pre><code class="javascript">
-$scope.amount = 1234.56;
-                        </code></pre>
-                        <pre class="fragment"><code class="html">
-&lt;div&gt;{{amount}}&lt;/div&gt;                      &lt;!-- 1234.56 --&gt;
-                        </code></pre>
-                        <pre class="fragment"><code class="html">
-&lt;div&gt;{{amount | currency}}&lt;/div&gt;           &lt;!-- $1,234.56 --&gt;
-                        </code></pre>
-                        <pre class="fragment"><code class="html">
-&lt;div&gt;{{amount | currency:"USD$"}}&lt;/div&gt;    &lt;!-- USD$1,234.56 --&gt;
-                        </code></pre>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Filtres AngularJS</h2>
+                        <h2>Etat</h2>
                         <ul>
-                            <li>currency</li>
-                            <li>number</li>
-                            <li>date</li>
-                            <li>lowercase</li>
-                            <li>uppercase</li>
-                            <li>limitTo</li>
-                            <li>filter</li>
-                            <li>orderBy</li>
+                            <li class="fragment">$pristine</li>
+                            <li class="fragment">$dirty</li>
+                            <li class="fragment">$valid</li>
+                            <li class="fragment">$invalid</li>
+                            <li class="fragment">$error</li>
+
                         </ul>
                     </section>
-
                     <section>
-                        <h1>{{ DEMO }}</h1>
+                        <h2>{{ DEMO }}</h2>
                     </section>
                 </section>
 
                 <section>
-                     <section>
-                         <h2>Créer vos propres filtres</h2>
-                     </section>
-                    <section data-transition="fade">
-                        <pre><code class="html">
-&lt;html ng-app="myModule"&gt;
-    &lt;div&gt;{{name | greet}}&lt;/div&gt;             &lt;!-- Yo Thierry --&gt;
-&lt;/html&gt;
-                        </code></pre>
-
-                        <pre class="fragment"><code class="javascript">
-angular.module("myModule")
-    .filter('greet', function (dep1, dep2, ...) {
-
-
-
-
-
-
-
-
-
-    });
-                        </code></pre>
-                    </section>
-
-                    <section data-transition="none">
-                        <pre><code class="html">
-&lt;html ng-app="myModule"&gt;
-    &lt;div&gt;{{name | greet}}&lt;/div&gt;             &lt;!-- Yo Thierry --&gt;
-&lt;/html&gt;
-                        </code></pre>
-
-                        <pre><code class="javascript">
-angular.module("myModule")
-    .filter('greet', function (dep1, dep2, ...) {
-
-        return function(value) {
-
-
-
-                return 'Yo ' + value;
-
-        };
-
-    });
-                        </code></pre>
-                    </section>
-
-                    <section data-transition="none">
-                        <pre><code class="html">
-&lt;html ng-app="myModule"&gt;
-    &lt;div&gt;{{name | greet:true}}&lt;/div&gt;   &lt;!-- Bonjour Thierry --&gt;
-&lt;/html&gt;
-                        </code></pre>
-
-                        <pre><code class="javascript">
-angular.module("myModule")
-    .filter('greet', function (dep1, dep2, ...) {
-
-        return function(value, isPolite) {
-            if(isPolite){
-                return 'Bonjour ' + value;
-            } else {
-                return 'Yo ' + value;
-            }
-        };
-
-    });
-                        </code></pre>
-                    </section>
-
                     <section>
-                        <h2>Injectable</h2>
-                        <pre class="fragment"><code class="javascript">
-function myController($scope, greetFilter){
-
-};
+                        <h3>Définissez vos propres attributs de validation</h3>
+                        <p>Directives</p>
+                        <pre class="fragment"><code class="html">
+               &lt;input type="text" ng-model="address" address&gt;
+               &lt;input type="url" ng-model="website" authorized&gt;
                         </code></pre>
-                        <h2 class="fragment">Facilement Testable</h2>
-                    </section>
-
-                    <section>
-                        <h1>{{ DEMO }}</h1>
-                    </section>
-
-                </section>
-                
-                <section>
-                    <section>
-                        <p>Declarative</p>
-                        <p class="fragment">Pas de manipulation de DOM</p>
-                    </section>
-                    <section>
-                        <p><a href="http://www.localytics.com/blog/2013/angularjs-at-localytics/"><img src="img/amp-angular-backbone-550x339.png" height="500" alt=":("/></a></p>
                     </section>
                 </section>
 
