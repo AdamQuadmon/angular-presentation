@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+.sass-cachereveal-boilerplate.iml
+.idea/
+reveal-boilerplate.iml
+.idea
+slides-prez-angular-form.iml

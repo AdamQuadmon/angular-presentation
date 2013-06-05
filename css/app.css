@@ -1,0 +1,12 @@
+.reveal section img {
+    background : none;
+    border : none;
+    box-shadow: none;
+}
+
+.reveal section .orange {
+    color: #ff4500;
+    font-weight: bold;
+    font-size: 80px;
+    font-family: sans-serif;
+}
