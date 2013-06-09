@@ -46,22 +46,6 @@
                             <small>presenté par <a href="http://gplus.to/lauthierry">LAU Thierry</a> - <a href="https://twitter.com/laut3rry">@laut3rry</a></small>
                         </p>
                     </section>
-                    <section>
-                        <h2>Développeur Front End chez <span class="orange">[</span>sf<span class="orange">Ξ</span>ir<span class="orange">]</span></h2>
-                        <a href="http://www.sfeir.com"><img src="img/sfeir.png" alt=""></a>
-                    </section>
-                    <section>
-                        <h2>Anime la page HTML5 * CSS3 - ʕ๏๏ʔ</h2>
-                        <figure>
-                            <a href="https://plus.google.com/101291710590780094468/posts"><img src="img/page_google_plus.png" alt=""></a>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2>et la communauté HTML5 * CSS3 [FR]</h2>
-                        <figure>
-                            <a href="http://gplus.to/html5css3fr"><img src="img/communaute_google_plus.png" alt=""></a>
-                        </figure>
-                    </section>
                 </section>
 
                 <section>
@@ -73,7 +57,7 @@
                     </section>
                     <section>
                         <h3>Validation côté client</h3>
-                        <img src="img/required-browser.png" width="800px"  alt="required-browser"/>
+                        <img class="fragment" src="img/required-browser.png" width="800px"  alt="required-browser"/>
                         <h3 class="fragment">Feedbacks instantanées</h3>
                         <h3 class="fragment">Moins de requêtes</h3>
                         <h3 class="fragment">Meilleure UX</h3>
@@ -128,9 +112,19 @@
                         <h2>Validation manuelle</h2>
                         <p>$setValidity(validationErrorKey, isValid)</p>
                         <ul>
-                            <li>validationErrorKey : nom de la règle de validation</li>
-                            <li>isValid : true ou false</li>
+                            <li class="fragment">validationErrorKey : nom de la règle de validation
+                                <ul>
+                                    <li>required</li>
+                                    <li>email</li>
+                                    <li>min</li>
+                                    <li>maxlength</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">isValid : true ou false</li>
                         </ul>
+                         <pre class="fragment"><code class="javascript">
+    $setValidity('email', false)           // email invalide
+                         </code></pre>
                     </section>
                 </section>
 
