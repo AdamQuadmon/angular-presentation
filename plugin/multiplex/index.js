@@ -30,7 +30,7 @@ app.configure(function() {
 });
 
 app.get("/", function(req, res) {
-	fs.createReadStream(opts.baseDir + '/index.html').pipe(res);
+	fs.createReadStream(opts.baseDir + '/index2.html').pipe(res);
 });
 
 app.get("/token", function(req,res) {
@@ -52,4 +52,4 @@ var brown = '\033[33m',
 	green = '\033[32m',
 	reset = '\033[0m';
 
-console.log( brown + "reveal.js:" + reset + " Multiplex running on port " + green + opts.port + reset );
+console.log( brown + "reveal.old..js:" + reset + " Multiplex running on port " + green + opts.port + reset );

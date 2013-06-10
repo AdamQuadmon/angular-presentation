@@ -14,7 +14,7 @@
 })();
 
 /*!
- * zoom.js 0.2 (modified version for use with reveal.js)
+ * zoom.js 0.2 (modified version for use with reveal.old..js)
  * http://lab.hakim.se/zoom-js
  * MIT licensed
  *

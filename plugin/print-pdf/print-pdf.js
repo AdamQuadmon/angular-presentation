@@ -23,7 +23,7 @@ page.paperSize = {
 };
 page.zoomFactor = 1.5;
 
-var revealFile = system.args[1] || 'index.html?print-pdf';
+var revealFile = system.args[1] || 'index2.html?print-pdf';
 var slideFile = system.args[2] || 'slides.pdf';
 
 if( slideFile.match( /\.pdf$/gi ) === null ) {

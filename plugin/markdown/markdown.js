@@ -3,7 +3,7 @@
 (function(){
 
     if( typeof marked === 'undefined' ) {
-        throw 'The reveal.js Markdown plugin requires marked to be loaded';
+        throw 'The reveal.old..js Markdown plugin requires marked to be loaded';
     }
 
     var stripLeadingWhitespace = function(section) {

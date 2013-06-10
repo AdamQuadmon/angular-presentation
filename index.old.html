@@ -4,33 +4,31 @@
 <head>
     <meta charset="utf-8">
 
-    <title>AngularJS</title>
+    <title>Formulaire AngularJS</title>
 
-    <meta name="description" content="Focus sur les formulaires AngularJS par Thierry LAU">
+    <meta name="description" content="Slides de présentation des formulaires AngularJS">
     <meta name="author" content="Thierry LAU">
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="css/app.css">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/app.css"/>
 
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
     </script>
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-
-    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 </head>
 
 <body>
@@ -115,7 +113,7 @@
             <section>
                 <h2>Data Binding</h2>
                         <pre class="fragment"><code class="html">
-    &lt;input type="text" ng-model="name"&gt;
+                            &lt;input type="text" ng-model="name"&gt;
                         </code></pre>
             </section>
             <section>
@@ -124,12 +122,12 @@
                             &lt;input type="email" ng-model="user.mail"&gt;
                         </code></pre>
                         <pre class="fragment"><code class="html">
-    &lt;input ng-model="name"
-              required
-              ng-minlength="3"
-              ng-maxlength="10"
-              ng-pattern="[^a-d]"
-            &gt;
+                            &lt;input ng-model="name"
+                                      required
+                                      ng-minlength="3"
+                                      ng-maxlength="10"
+                                      ng-pattern="[^a-d]"
+                                    &gt;
                         </code></pre>
             </section>
             <section>
@@ -157,9 +155,9 @@
                     </li>
                     <li class="fragment">isValid : true ou false</li>
                 </ul>
-                 <pre class="fragment"><code class="javascript">
-     $setValidity('email', false)       // email invalide
-                 </code></pre>
+                         <pre class="fragment"><code class="javascript">
+                             $setValidity('email', false)           // email invalide
+                         </code></pre>
             </section>
         </section>
 
@@ -189,10 +187,10 @@
                 <h3>Définissez vos propres attributs de validation</h3>
 
                 <p>Directives</p>
-    <pre class="fragment"><code class="html">
-        &lt;input type="text" ng-model="address" address&gt;
-        &lt;input type="url" ng-model="website" authorized&gt;
-    </code></pre>
+                        <pre class="fragment"><code class="html">
+                            &lt;input type="text" ng-model="address" address&gt;
+                            &lt;input type="url" ng-model="website" authorized&gt;
+                        </code></pre>
             </section>
         </section>
 
@@ -209,7 +207,17 @@
 </div>
 
 <script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script type="text/javascript">
+    Reveal.addEventListener('entersfeir', function () {
+        $('.reveal').addClass('black-back');
+    }, false);
+
+    Reveal.addEventListener('leavesfeir', function () {
+        $('.reveal').removeClass('black-back');
+    }, false);
+</script>
 
 <script>
 
@@ -222,31 +230,33 @@
         center: true,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
-            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            { src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } }
             // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
             // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
     });
 
-</script>
-
-<script type="text/javascript">
-    Reveal.addEventListener( 'entersfeir', function() {
-        $('.reveal').addClass('black-back');
-    }, false );
-
-    Reveal.addEventListener( 'leavesfeir', function() {
-        $('.reveal').removeClass('black-back');
-    }, false );
 </script>
 
 </body>
