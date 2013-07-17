@@ -6,8 +6,8 @@
 
     <title>AngularJS</title>
 
-    <meta name="description" content="Focus sur les formulaires AngularJS par Thierry LAU">
-    <meta name="author" content="Thierry LAU">
+    <meta name="description" content="Why we choose to go SAP (and no to a SPA)">
+    <meta name="author" content="Luciano Amodio">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -40,169 +40,404 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
+    <section>
+        <img class="fragment fade-in" src="images/renzo_piano.jpg"><br />
+        <cite>"because the center of the composition is not a building,<br /> but an empty space."</cite>
+    </section>
+
+    <section>
+        <h1>Why we choose to go SAP (and no to a SPA)</h1>
+        <h3>Quick introduction to AngularJS</h3>
+        <h4>Luciano Amodio</h4>
+    </section>
+
+    <section>
+        <h1>AngularJS</h1>
+        <p>
+            The superheroic Javascript framework.
+        </p>
+    </section>
+
+
+    <!-- MVC -->
+    <section>
         <section>
-            <section>
-                <img src="img/angularjs.png" height="300px" alt="AngularJS">
-
-                <h3>Focus sur les formulaires AngularJS</h3>
-
-                <p>
-                    <small>presenté par <a href="http://gplus.to/lauthierry">LAU Thierry</a> - <a
-                            href="https://twitter.com/laut3rry">@laut3rry</a></small>
-                </p>
-            </section>
-            <section data-state="entersfeir">
-                <a href="http://www.sfeir.com"><img src="img/logoNoir_SFEIR.png" alt="SFEIR"></a>
-
-                <p>front-end developer</p>
-            </section>
-            <section data-state="leavesfeir">
-                <h2>Anime la page HTML5 * CSS3 - ʕ๏๏ʔ</h2>
-                <figure>
-                    <a href="https://plus.google.com/101291710590780094468/posts"><img src="img/page_google_plus.png"
-                                                                                       alt=""></a>
-                </figure>
-            </section>
-            <section>
-                <h2>et la communauté HTML5 * CSS3 [FR]</h2>
-                <figure>
-                    <a href="http://gplus.to/html5css3fr"><img src="img/communaute_google_plus.png" alt=""></a>
-                </figure>
-            </section>
+            <h1>MVC</h1>
+            <h3>Models / Views / Controllers</h3>
         </section>
 
         <section>
-            <section>
-                <img src="img/HTML5_Logo_512.png" alt="HTML5"/>
-            </section>
-            <section>
-                <img src="img/html5-inputs.png" width="800px" alt="HTML5 Inputs"/>
-            </section>
-            <section>
-                <h3>Validation côté client</h3>
-                <img class="fragment" src="img/required-browser.png" width="800px" alt="required-browser"/>
+            <h2>Resources</h2>
+                        <pre><code contenteditable>
 
-                <h3 class="fragment">Feedbacks instantanées</h3>
+                            var User = $resource('/api/users/', {id: '@objectId'});
 
-                <h3 class="fragment">Moins de requêtes</h3>
-
-                <h3 class="fragment">Meilleure UX</h3>
-            </section>
-            <section>
-                <figure>
-                    <img width="1500px" src="img/HTML5%20Inputs%20Support.jpg" alt=""/>
-                    <figcaption>
-                        <small>http://www.wufoo.com/html5/</small>
-                    </figcaption>
-                </figure>
-            </section>
-            <section>
-                <figure>
-                    <img width="1500px" src="img/HTML5%20Inputs%20Attributes%20Support.jpg" alt=""/>
-                    <figcaption>
-                        <small>http://www.wufoo.com/html5/</small>
-                    </figcaption>
-                </figure>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h2>ng-model</h2>
-
-                <h3 class="fragment">input, textarea, select</h3>
-            </section>
-            <section>
-                <h2>Data Binding</h2>
-                        <pre class="fragment"><code class="html">
-    &lt;input type="text" ng-model="name"&gt;
                         </code></pre>
-            </section>
-            <section>
-                <h2>Validations</h2>
-                        <pre class="fragment"><code class="html">
-                            &lt;input type="email" ng-model="user.mail"&gt;
+
+                        <pre><code contenteditable>
+                            // Default methods
+                            {
+                            'get':    {method:'GET'},
+                            'save':   {method:'POST'},
+                            'query':  {method:'GET', isArray:true},
+                            'remove': {method:'DELETE'},
+                            'delete': {method:'DELETE'}
+                            };
                         </code></pre>
-                        <pre class="fragment"><code class="html">
-    &lt;input ng-model="name"
-              required
-              ng-minlength="3"
-              ng-maxlength="10"
-              ng-pattern="[^a-d]"
-            &gt;
+            <p><i>... and more!</i></p>
+        </section>
+
+        <section>
+            <h2>Resources</h2>
+                        <pre><code contenteditable>
+
+                            ...
+                            User.prototype.isHacker = function() { return this.is_hacker; }
+                            User.prototype.hackStuff = function(p) { this.current = p; }
+                            ...
+
                         </code></pre>
-            </section>
-            <section>
-                <h2>Etat</h2>
-                <ul>
-                    <li class="fragment">$pristine</li>
-                    <li class="fragment">$dirty</li>
-                    <li class="fragment">$valid</li>
-                    <li class="fragment">$invalid</li>
-                    <li class="fragment">$error</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Validation manuelle</h2>
+        </section>
 
-                <p>$setValidity(validationErrorKey, isValid)</p>
-                <ul>
-                    <li class="fragment">validationErrorKey : nom de la règle de validation
-                        <ul>
-                            <li>required</li>
-                            <li>email</li>
-                            <li>min</li>
-                            <li>maxlength</li>
-                        </ul>
-                    </li>
-                    <li class="fragment">isValid : true ou false</li>
-                </ul>
-                 <pre class="fragment"><code class="javascript">
-     $setValidity('email', false)       // email invalide
-                 </code></pre>
-            </section>
+
+        <section>
+            <h2>HTML</h2>
+                        <pre><code contenteditable>
+
+                            &lt;div ng-controller="ItemsController"&gt;
+                            &lt;p&gt;Total items: {{ number_of_items}}&lt;p&gt;
+                            &lt;ul&gt;
+                            &lt;li ng-repeat="i in items"&gt;
+                            &lt;h1&gt;{{ i.name }}&lt;/h1&gt;
+                            &lt;p&gt;{{ i.desc }}&lt;/p&gt;
+                            &lt;p&gt;{{ i.amount }}&lt;/p&gt;
+                            &lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;div&gt;
+
+                        </code></pre>
+            <p>I prefer my templates in HTML, not Javascript, thank you.</p>
+        </section>
+
+
+        <section>
+            <h2>Controllers</h2>
+                        <pre><code contenteditable>
+
+                            function ItemController($rootScope, $scope, Item) {
+
+                            $scope.user = $rootScope.user;
+                            $scope.items = Item.query(function success(data) {
+
+                            // Summarise items
+                            $rootScope.user.summarise(data);
+                            });
+
+                            $scope.itemCount = function() {
+                            $scope.number_of_items = $scope.items.length;
+                            }
+
+                            }
+                            HomeController.$inject = ['$rootScope', '$scope', 'User'];
+
+                        </code></pre>
+            <p>It's all about the $scope</p>
+        </section>
+    </section>
+
+    <!-- Basic stucture -->
+    <section>
+        <section>
+            <h1>The Basics</h1>
+        </section>
+        <section>
+            <h2>Getting started</h2>
+                        <pre><code contenteditable>
+
+                            &lt;html ng-app="HackerApp"&gt;
+                            ...
+                            &lt;div ng-controller="AwesomeHackerCtrl"&gt;...&lt;/div&gt;
+                            &lt;div ng-controller="SuperHackerCtrl"&gt;...&lt;/div&gt;
+                            &lt;/html&gt;
+
+
+                        </code></pre>
+            <p>Angular is happy to live within its own scope</p>
         </section>
 
         <section>
-            <section>
-                <h2>form</h2>
+            <h2>ng-app</h2>
+                        <pre><code contenteditable>
 
-                <p>Ensemble d'<code>inputs</code></p>
-            </section>
-            <section>
-                <h2>Etat</h2>
-                <ul>
-                    <li class="fragment">$pristine</li>
-                    <li class="fragment">$dirty</li>
-                    <li class="fragment">$valid</li>
-                    <li class="fragment">$invalid</li>
-                    <li class="fragment">$error</li>
-                </ul>
-            </section>
-            <section>
-                <h2>{{ DEMO }}</h2>
-            </section>
+                            var HA = angular.module('HackerApp', ['models']).
+                            config(function($interpolateProvider) {
+                            $interpolateProvider.startSymbol('{!');
+                            $interpolateProvider.endSymbol('!}');
+                            });
+
+                            // Configure custom template markers
+                            HA.config(function($httpProvider) {
+                            $httpProvider.defaults.headers.
+                            common['X-Hacker'] = "w3H@xX0rz";
+                            })
+
+                            // Configure app initialisation
+                            HA.run(function($window, $rootScope, $location, User){
+
+                            // Check if we have a user in store
+                            if($rootScope.user.isLoggedIn()) { ... }
+                            });
+
+                        </code></pre>
+            <p>Global config and setup</p>
         </section>
 
         <section>
-            <section>
-                <h3>Définissez vos propres attributs de validation</h3>
+            <h2>ng-controller</h2>
+                        <pre><code contenteditable>
 
-                <p>Directives</p>
-    <pre class="fragment"><code class="html">
-        &lt;input type="text" ng-model="address" address&gt;
-        &lt;input type="url" ng-model="website" authorized&gt;
-    </code></pre>
-            </section>
+                            // Awesome Hackers
+                            function AHCtrl($window, $rootScope, $scope, $http, Hacker) {
+
+                            $scope.hackers = Hacker.query(function(data) {
+                            // Validate each hacker
+                            });
+
+                            $scope.validateHacker = function(h) {
+                            // Determine if awesome hacker
+                            };
+                            }
+                            AHCtrl.$inject = ['$window', '$rootScope', '$scope', '$http', 'Hacker'];
+
+                        </code></pre>
+            <p>Scoped local methods</p>
         </section>
 
         <section>
-            <h3>Merci de votre attention !</h3>
+            <h2>Services</h2>
 
-            <p>twitter : <a href="https://twitter.com/laut3rry">@laut3rry</a></p>
+                        <pre><code contenteditable>
 
-            <p>google + : <a href="http://gplus.to/lauthierry">gplus.to/lauthierry</a></p>
+                            angular.module('models', ['ngResource', 'ngCookies']).
+                            factory('Hacker', function($resource) {
+
+                            var Hacker = $resource("/api/hacker/:id", {id: "@id"})
+
+                            // Add class methods
+                            Hacker.login = function(data, success, error) {
+                            $http.post('/api/login/', data).
+                            success(success).
+                            error(error);
+                            });
+
+                        </code></pre>
         </section>
+
+    </section>
+
+    <section>
+        <section>
+            <h1>Routing</h1>
+        </section>
+
+        <section>
+            <h2>ng-view</h2>
+                        <pre><code contenteditable>
+
+                            &lt;html ng-app="HackerApp"&gt;
+                            ...
+                            &lt;div ng-view&gt;&lt;/div&gt;
+                            &lt;/html&gt;
+
+                        </code></pre>
+        </section>
+
+        <section>
+            <h2>The Router</h2>
+                        <pre><code contenteditable>
+
+                            // Configure routes
+                            HA.config(function($routeProvider, $locationProvider) {
+                            $routeProvider.
+                            when('/s/', {controller: SHCtrl, templateUrl: '/static/sh.html'}).
+                            when('/a/', {controller: AHCtrl, templateUrl: '/static/ah.html'}).
+                            otherwise({redirectTo: '/'});
+
+                            // Set HTML5 Mode for routes
+                            $locationProvider.html5Mode(true);
+                            });
+
+                        </code></pre>
+        </section>
+
+    </section>
+
+    <!-- Promises -->
+    <section>
+        <section>
+            <h1>Promises</h1>
+        </section>
+
+        <section>
+            <h2>CB March of Doom</h2>
+                        <pre><code contenteditable>
+
+                            var results = doThis(function(data) {
+                            doThat(data, function(data2) {
+                            mungeNumbers(data2, function(data3) {
+                            hideTracks(data3, function(data4) {
+                            boostProfits(data4, function(data5) {
+                            // On, and on, and on and on...
+                            })
+                            })
+                            })
+                            })
+                            })
+
+                        </code></pre>
+        </section>
+
+        <section>
+            <h2>The Promise</h2>
+            <blockquote cite="http://wiki.commonjs.org/wiki/Promises">
+                The CommonJS Promise proposal describes a promise as an interface for interacting with an object that represents the result of an action that is performed asynchronously, and may or may not be finished at any given point in time.
+            </blockquote>
+        </section>
+
+        <section>
+            <h2>The "Promise"</h2>
+            <img src="img/men_promise.png" />
+        </section>
+
+        <section>
+            <h2>The Promise</h2>
+                        <pre><code contenteditable>
+                            angular.module('parse_backend', ['ngResource']).
+                            config(function($httpProvider) {
+                            $httpProvider.responseInterceptors.push(function($q) {
+                            return function(promise) {
+                            return promise.then(
+                            function(response) { // Success
+                            // Boost profits
+                            response.data['numbers'] += Math.pow(10, 6);
+                            },
+                            function(response) { // Error
+
+                            return $q.reject(response);
+                            }
+                            )
+                            }
+                            });
+                            }).
+                        </code></pre>
+        </section>
+
+        <section>
+            <h2>The Promise</h2>
+                        <pre><code contenteditable>
+
+                            var chores =
+                            $http.get('/husband/', { params: {clean: 'kitchen'}}).
+
+                            then(function(promise_d) { // Success
+                            if(promise_d.data.tv_hours >= 5) {
+                            // Clean
+                            }
+                            else {
+                            return $q.defer("Not yet");
+                            }
+                            },
+                            function(promise_d) { // Error
+                            // No clean
+                            });
+
+                        </code></pre>
+            <p>Annndd .then(). Annnnnnd .then(). And .then() and .then()</p>
+        </section>
+    </section>
+
+    <!-- Gotchas -->
+    <section>
+        <section>
+            <h1>Gotchas</h1>
+            <h3>(Or: things you wish they told you)</h3>
+        </section>
+
+        <section>
+            <h2>$resource</h2>
+            <p>Distributed separately</p>
+        </section>
+
+        <section>
+            <h2>$cookies</h2>
+            <p>Also distributed separately</p>
+        </section>
+
+        <section>
+            <h2>Therefore</h2>
+                        <pre><code contenteditable>
+
+                            &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"&gt;&lt;/script&gt;
+                            &lt;script src="http://code.angularjs.org/angular-resource-1.0.1.min.js"&gt;&lt;/script&gt;
+                            &lt;script src="http://code.angularjs.org/1.0.1/angular-cookies-1.0.1.min.js"&gt;&lt;/script&gt;
+
+                        </code></pre>
+            <img class="fragment" src="http://bfolder.ru/_ph/14/1/788301072.jpg" />
+        </section>
+
+        <section>
+            <h2>AngularJS is friendly</h2>
+            <p>But it chooses its friends carefully</p>
+        </section>
+    </section>
+
+
+    <!-- Plug -->
+    <section>
+        <section>
+            <h1>&lt;plug type="shameless"&gt;</h1>
+        </section>
+
+        <section>
+            <h2>HackDo</h2>
+            <img src="img/hsg_banner.png">
+            <p><a href="http://hackerspace.sg">Hackerspace.SG</a>'s Get Shit Done Hackathon</p>
+            <p>1 Sept 2012 12pm - 2 Sept 2012 7pm</p>
+            <p><a href="https://www.facebook.com/events/333133036776477/">Sign Up Here</a></p>
+        </section>
+
+        <section>
+            <h2>HackDo</h2>
+            <img src="img/hsg_banner.png">
+            <ul>
+                <li>online membership management system (also called <a href="https://github.com/hackerspacesg/hackdo">HackDo</a>)</li>
+                <li>hardware hacking on door access system</li>
+                <li>environmental hacking (making sure the space remains awesome)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>HackDo</h2>
+            <img src="img/hsg_banner.png">
+            <ul>
+                <li>Built on Django (and pink ponies)</li>
+                <li>Customised admin interface for recording and reporting</li>
+                <li>Needs: reporting, invoice generation, user management</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>&lt;/plug&gt;
+        </section>
+
+    </section>
+
+    <!-- Thanks QnA -->
+    <section>
+        <h1>Thank you</h1>
+        <h3>Questions?</h3>
+        <h4>@ruiwen</h4>
+    </section>
 
     </div>
 
