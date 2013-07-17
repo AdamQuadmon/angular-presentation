@@ -35,9 +35,18 @@
     <script type="text/javascript">
         var myApp2 = angular.module('myApp2', []);
 
+        var _viewSlide = '8/5';
+
+        var _fellows = [
+            {name: 'Luciano',   from: 'Italy'},
+            {name: 'ayahm',     from: 'Sirya'},
+            {name: 'geshan',    from: 'Nepal'},
+            {name: 'halal',     from: 'Lebanon'}
+        ]
+
         myApp2.config(function($routeProvider){
             $routeProvider
-                    .when('/26',
+                    .when('/' + _viewSlide,
                     {
                         controller: 'SimpleController2',
                         templateUrl: 'view1.html'
@@ -50,6 +59,8 @@
         });
 
         myApp2.controller('SimpleController2', function($scope, SimpleFactory){
+
+            $scope.view1 = _viewSlide
             $scope.fellows = SimpleFactory.getFellows();
 
             $scope.addFellow = function(){
@@ -65,12 +76,7 @@
             return {
                 getFellows: function ()
                 {
-                    var fellows = [
-                        {name: 'Luciano',   from: 'Italy'},
-                        {name: 'ayahm',     from: 'Sirya'},
-                        {name: 'geshan',    from: 'Nepal'},
-                        {name: 'halal',     from: 'Lebanon'}
-                    ];
+                    var fellows = _fellows;
 
                     return fellows;
                 }
@@ -88,85 +94,102 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-    <section>
-        <img class="fragment fade-in" src="images/renzo_piano.jpg"><br />
-        <cite>"because the center of the composition is not a building,<br /> but an empty space."</cite>
-    </section>
 
+
+<section>
+    <img class="fragment fade-in" src="images/renzo_piano.jpg"><br />
+    <cite>"because the center of the composition is not a building,<br /> but an empty space."</cite>
+</section>
+
+
+
+<section data-transition-speed="page">
     <section>
         <h1>Why we choose to go to SPA</h1>
+        <br />
+        <br />
+        <br />
+        <br />
         <h3>Quick introduction to AngularJS</h3>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <h4>Luciano Amodio</h4>
     </section>
 
     <section>
-        <img src="images/spa01.jpg"><br />
-    </section>
-    <section>
-        <p>No that SPA</p>
+        <br />
+        <br />
+        <br />
+        <img src="images/spa01.jpg">
     </section>
 
+    <section data-transition="zoom">
+        <h2>No that SPA</h2>
+    </section>
+
+
     <section>
-        <h3>What is a SPA?</h3>
-        <p class="fragment fade-in">Single</p>
-        <p class="fragment fade-in">Page</p>
-        <p class="fragment fade-in">Application</p>
+        <h2>What is a SPA?</h2><br /><br /><br /><br /><br />
+        <span class="fragment fade-in">Single</span> &nbsp;&nbsp;
+        <span class="fragment fade-in">Page</span>&nbsp;&nbsp;
+        <span class="fragment fade-in">Application</span>&nbsp;&nbsp;
     </section>
 
     <section>
         <h3>What's in a SPA?</h3>
         <ul>
-            <li class="fragment fade-in">Dom Manipulation</li>
-            <li class="fragment fade-in">History</li>
             <li class="fragment fade-in">Module Loading</li>
             <li class="fragment fade-in">Routing</li>
-            <li class="fragment fade-in">Caching</li>
             <li class="fragment fade-in">Object Modeling</li>
-            <li class="fragment fade-in">Data Binding</li>
             <li class="fragment fade-in">Ajax/Promises</li>
+            <li class="fragment fade-in">Caching</li>
+            <li class="fragment fade-in">Data Binding</li>
+            <li class="fragment fade-in">Dom Manipulation</li>
+            <li class="fragment fade-in">History</li>
         </ul>
     </section>
 
+</section>
+
+
+
+<section>
+
     <section>
-        <h1>Why AngularJs?</h1>
-        <h3 class="fragment fade-in">All that in a single Library</h3>
+        <h1>Why AngularJs?</h1><br /><br /><br /><br />
+        <h3 class="fragment fade-in">All that &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fragment fade-in">in a single Library</span></h3>
     </section>
 
     <section>
         <ul>
-            <li class="fragment fade-in">Data Binding</li>
-            <li class="fragment fade-in">MVC</li>
-            <li class="fragment fade-in">Routing</li>
-            <li class="fragment fade-in">Testing</li>
-            <li class="fragment fade-in">Templates</li>
-            <li class="fragment fade-in">History</li>
-            <li class="fragment fade-in">Factories</li>
-            <li class="fragment fade-in">jqLite</li>
-            <li class="fragment fade-in">ViewModel</li>
-            <li class="fragment fade-in">Controllers</li>
-            <li class="fragment fade-in">Views</li>
-            <li class="fragment fade-in">Directives</li>
-            <li class="fragment fade-in">Services</li>
+            <li>MVC<span class="fragment fade-in">, or better</span><span class="fragment fade-in">: MVW</span></li>
             <li class="fragment fade-in">Dependency Injection</li>
+            <li class="fragment fade-in">Factories & Services</li>
+            <li class="fragment fade-in">Routing</li>
+            <li class="fragment fade-in">History</li>
+            <li class="fragment fade-in">Templates</li>
+            <li class="fragment fade-in">Directives</li>
+            <li class="fragment fade-in">Two<->Way Data Binding</li>
             <li class="fragment fade-in">Validation</li>
+            <li class="fragment fade-in">Testing</li>
+            <li class="fragment fade-in">jqLite</li>
         </ul>
     </section>
+</section>
 
 
 
-
-
-
+<section>
 
     <section>
         <h3>Directives & Data binding</h3>
     <pre><code contenteditable ng-non-bindable>
-    <div class="container" ng-init="names=[
-                                    'Luciano',
-                                    'ayahm',
-                                    'geshan',
-                                    'halal']">
-    </div>
+    <div ng-init="names=['Luciano', 'Ayahm', 'Geshan', 'Halal']"></div>
 
     <ul>
         <li ng-repeat="personName in names">{{ personName }}</li>
@@ -175,86 +198,67 @@
     </section>
 
     <section>
-            <div class="container" ng-init="names=[
-                                            'Luciano',
-                                            'ayahm',
-                                            'geshan',
-                                            'halal']">
-            </div>
+        <div ng-init="names=['Luciano', 'Ayahm', 'Geshan', 'Halal']">
+        </div>
 
-            <ul>
-                <li ng-repeat="personName in names">{{ personName }}</li>
-            </ul>
+        <ul>
+            <li ng-repeat="personName in names">{{ personName }}</li>
+        </ul>
     </section>
 
+</section>
 
 
 
-
+<section>
 
     <section>
         <h3>Filters</h3>
     <pre><code contenteditable ng-non-bindable>
-    <div class="container"
-         ng-init="fellows=[
-            {name: 'Luciano',   from: 'Italy'},
-            {name: 'ayahm',     from: 'Sirya'},
-            {name: 'geshan',    from: 'Nepal'},
-            {name: 'halal',     from: 'Lebanon'}
-            ]">
-        Filter by Value: <input type="text" ng-model="fName" />
-        you'r typing: {{  fName }}
-    </div>
-    <ul>
-        <li ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">
-            {{ fellow.name }} - {{ fellow.from }}
-        </li>
-    </ul>
+        <div ng-init="fellows=[
+                                {name: 'Luciano',   from: 'Italy'},
+                                {name: 'Ayahm',     from: 'Sirya'},
+                                {name: 'Geshan',    from: 'Nepal'},
+                                {name: 'Halal',     from: 'Lebanon'}]"></div>
+
+        Filter by Value: <input type="text" ng-model="name" />
+
+        you'r typing: {{  name }}
+
+        <ul>
+            <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
+                {{ fellow.name }} - {{ fellow.from }}
+            </li>
+        </ul>
     </code></pre>
     </section>
 
     <section>
-    <div class="container" ng-init="fellows=[
+        <div class="left">
+
+            <div ng-init="fellows=[
                                 {name: 'Luciano',   from: 'Italy'},
                                 {name: 'ayahm',     from: 'Sirya'},
                                 {name: 'geshan',    from: 'Nepal'},
                                 {name: 'halal',     from: 'Lebanon'}
                                 ]">
 
-        Filter by Value: <input type="text" ng-model="fName" /><br />
-        you'r typing: {{ fName }}<br /><br />
-    </div>
+                Filter by Value: <input type="text" ng-model="name" /><br />
+                you'r typing: {{ name }}<br /><br />
+            </div>
 
-    <ul>
-        <li ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</li>
-    </ul>
+            <ul>
+                <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</li>
+            </ul>
+        </div>
     </section>
+</section>
 
 
 
 
 
-
-    <section>
-        <h3>View, Controllers & $scope</h3>
-    <pre><code contenteditable ng-non-bindable>
-    <script>
-        function SimpleController($scope){
-            $scope.fellows = [
-                {name: 'Luciano',   from: 'Italy'},
-                {name: 'ayahm',     from: 'Sirya'},
-                {name: 'geshan',    from: 'Nepal'},
-                {name: 'halal',     from: 'Lebanon'}];
-        }
-    </script>
-    <div class="container" ng-controller="SimpleController">
-        Filter by Value: <input type="text" ng-model="fName" />
-        <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">
-            {{ fellow.name }} - {{ fellow.from }}
-        </p>
-    </div>
-    </code></pre>
-    </section>
+<section>
 
     <section>
         <h3>Controllers & $scope</h3>
@@ -262,10 +266,10 @@
         <script>
             function SimpleController($scope){
                 $scope.fellows = [
-                    {name: 'Luciano',   from: 'Italy'},
-                    {name: 'ayahm',     from: 'Sirya'},
-                    {name: 'geshan',    from: 'Nepal'},
-                    {name: 'halal',     from: 'Lebanon'}];
+                                    {name: 'Luciano',   from: 'Italy'},
+                                    {name: 'ayahm',     from: 'Sirya'},
+                                    {name: 'geshan',    from: 'Nepal'},
+                                    {name: 'halal',     from: 'Lebanon'}];
             }
         </script>
     </code></pre>
@@ -274,14 +278,18 @@
     <section>
         <h3>View</h3>
     <pre><code contenteditable ng-non-bindable>
-    <div class="container" ng-controller="SimpleController">
+        <div ng-controller="SimpleController">
 
-        Filter by Value: <input type="text" ng-model="fName" />
+            Filter by Value: <input type="text" ng-model="name" />
 
-        <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">
-            {{ fellow.name }} - {{ fellow.from }}
-        </p>
-    </div>
+            you'r typing: {{ name }}
+
+            <ul>
+                <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
+                    {{ fellow.name }} - {{ fellow.from }}
+                </li>
+            </ul>
+        </div>
     </code></pre>
     </section>
 
@@ -297,18 +305,22 @@
                 ];
             }
         </script>
-        <div class="container" ng-controller="SimpleController">
+        <div class="left">
+            <div ng-controller="SimpleController">
 
-            Filter by Value: <input type="text" ng-model="fName" /><br />
-            you'r typing: {{ fName }}<br /><br />
-
-            <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</p>
+                Filter by Value: <input type="text" ng-model="name" /><br />
+                you'r typing: {{ name }}<br /><br />
+                <ul>
+                    <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</li>
+                </ul>
+            </div>
         </div>
     </section>
+</section>
 
 
 
-
+<section>
     <section>
         <h3>Modules, Routes & Factories</h3>
         <img src="images/modules01.png" />
@@ -318,24 +330,21 @@
         <h3>Modules, Routes & Factories</h3>
         <img src="images/modules02.png" />
     </section>
+</section>
 
-
-
-
-
-
+<section>
     <section>
-        <h3>Module & Controller</h3>
+        <h3>Controller</h3>
     <pre><code contenteditable ng-non-bindable>
         <script>
             var myApp = angular.module('myApp', []);
 
             myApp.controller('SimpleController', function($scope){
                 $scope.fellows = [
-                    {name: 'Luciano',   from: 'Italy'},
-                    {name: 'ayahm',     from: 'Sirya'},
-                    {name: 'geshan',    from: 'Nepal'},
-                    {name: 'halal',     from: 'Lebanon'}
+                                    {name: 'Luciano',   from: 'Italy'},
+                                    {name: 'ayahm',     from: 'Sirya'},
+                                    {name: 'geshan',    from: 'Nepal'},
+                                    {name: 'halal',     from: 'Lebanon'}
                 ];
             });
         </script>
@@ -345,28 +354,39 @@
     <section>
         <h3>View</h3>
     <pre><code contenteditable ng-non-bindable>
-&lt;body ng-app="myApp"&gt;
-    <div class="container" ng-controller="SimpleController">
+        &lt;body ng-app="myApp"&gt;
+            <div ng-controller="SimpleController">
 
-        Filter by Value: <input type="text" ng-model="fName" />
+                Filter by Value: <input type="text" ng-model="name" />
 
-        <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">
-            {{ fellow.name }} - {{ fellow.from }}
-        </p>
-    </div>
-&lt;/body&gt;
+                you'r typing: {{ name }}
+
+                <ul>
+                    <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
+                        {{ fellow.name }} - {{ fellow.from }}
+                    </li>
+                </ul>
+            </div>
+        &lt;/body&gt;
     </code></pre>
     </section>
 
     <section>
-        <div class="container" ng-controller="SimpleController">
+        <div class="left">
+        <div ng-controller="SimpleController">
 
-            Filter by Value: <input type="text" ng-model="fName" /><br />
-            you'r typing: {{ fName }}<br /><br />
+            Filter by Value: <input type="text" ng-model="name" /><br />
+            you'r typing: {{ name }}<br /><br />
 
-            <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</p>
+            <ul>
+                <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
+                    {{ fellow.name }} - {{ fellow.from }}
+                </li>
+            </ul>
+        </div>
         </div>
     </section>
+</section>
 
 
 
@@ -375,6 +395,13 @@
 
 
 
+
+
+
+
+
+
+<section>
 
     <section>
         <h3>Routes</h3>
@@ -382,7 +409,7 @@
             <script>
                 myApp.config(function($routeProvider){
                     $routeProvider
-                            .when('/26',
+                            .when('/view1',
                             {
                                 controller: 'SimpleController',
                                 templateUrl: 'view1.html'
@@ -400,95 +427,101 @@
     <section>
         <h3>SimpleController</h3>
         <pre><code contenteditable ng-non-bindable>
-    <script>
-        myApp.controller('SimpleController', function($scope){
-            $scope.fellows = [
-                {name: 'Luciano',   from: 'Italy'},
-                {name: 'ayahm',     from: 'Sirya'},
-                {name: 'geshan',    from: 'Nepal'},
-                {name: 'halal',     from: 'Lebanon'}
-            ];
-            $scope.addFellow = function(){
-                $scope.fellows.push({
-                    name: $scope.newFellow.name,
-                    from: $scope.newFellow.from });
-            }
-        });
-    </script>
+            <script>
+                myApp.controller('SimpleController', function($scope){
+                    $scope.fellows = [
+                                        {name: 'Luciano',   from: 'Italy'},
+                                        {name: 'ayahm',     from: 'Sirya'},
+                                        {name: 'geshan',    from: 'Nepal'},
+                                        {name: 'halal',     from: 'Lebanon'}
+                    ];
+                    $scope.addFellow = function(){
+                        $scope.fellows.push({
+                            name: $scope.newFellow.name,
+                            from: $scope.newFellow.from });
+                    }
+                });
+            </script>
         </code></pre>
     </section>
 
     <section>
-        <h3>Index</h3>
+        <h3>index.html</h3>
         <pre><code contenteditable ng-non-bindable>
-    &lt;body ng-app="myApp"&gt;
+            &lt;body ng-app="myApp"&gt;
 
+                <div ng-view></div>
+
+            &lt;/body&gt;
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>view1.html</h3>
+        <pre><code contenteditable ng-non-bindable>
+            Filter by Value: <input type="text" ng-model="name" />
+
+            <ul>
+                <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
+                    {{ fellow.name }} - {{ fellow.from }}
+                </li>
+            </ul>
+
+            Fellow name <input type="text" ng-model="newFellow.name" />
+
+            Fellow from <input type="text" ng-model="newFellow.from" />
+
+            <button ng-click="addFellow()">Add Fellow</button>
+
+            &lt;a href="/view2">View2&lt;/a>
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>view2.html</h3>
+        <pre><code contenteditable ng-non-bindable>
+            Filter by Value: <input type="text" ng-model="name" />
+
+            <ul>
+                <li ng-repeat="fellow in fellows | filter:name | orderBy:'name'">
+                    {{ fellow.name }} - {{ fellow.from }}
+                </li>
+            </ul>
+
+
+            &lt;a href="#/view1">View1&lt;/a>
+        </code></pre>
+    </section>
+
+    <section>
         <div ng-view></div>
-
-    &lt;/body&gt;
-        </code></pre>
     </section>
 
-    <section>
-        <h3>View1</h3>
-        <pre><code contenteditable ng-non-bindable>
-    Filter by Value: <input type="text" ng-model="fName" />
-
-    <p ng-repeat="fellow in fellows | filter:fName | orderBy:'from'">
-        {{ fellow.name }} - {{ fellow.from }}
-    </p>
-
-    Fellow name <input type="text" ng-model="newFellow.name" />
-
-    Fellow from <input type="text" ng-model="newFellow.from" />
-
-    <button ng-click="addFellow()">Add Fellow</button>
-
-    <a href="/view2">View2</a>
-        </code></pre>
-    </section>
-
-    <section>
-        <h3>View2</h3>
-        <pre><code contenteditable ng-non-bindable>
-    Filter by Value: <input type="text" ng-model="fName" />
-
-    <p ng-repeat="fellow in fellows | filter:fName | orderBy:'name'">
-        {{ fellow.name }} - {{ fellow.from }}
-    </p>
-
-
-    <a href="#/25">View1</a>
-        </code></pre>
-    </section>
-
-    <section>
-        <div ng-view></div>
-    </section>
+</section>
 
 
 
 
-
+<section>
 
     <section>
         <h3>Factories</h3>
         <pre><code contenteditable ng-non-bindable>
-    <script>
-        myApp.factory('SimpleFactory', function ()
-        {
-            return {
-                getFellows: function () {
-                    var fellows = [
-                        {name: 'Luciano',   from: 'Italy'},
-                        {name: 'ayahm',     from: 'Sirya'},
-                        {name: 'geshan',    from: 'Nepal'},
-                        {name: 'halal',     from: 'Lebanon'}];
-                    return fellows;
-                }
-            }
-        });
-    </script>
+            <script>
+                myApp.factory('SimpleFactory', function ()
+                {
+                    return {
+                        getFellows: function () {
+                            var fellows = [
+                                            {name: 'Luciano',   from: 'Italy'},
+                                            {name: 'ayahm',     from: 'Sirya'},
+                                            {name: 'geshan',    from: 'Nepal'},
+                                            {name: 'halal',     from: 'Lebanon'}];
+                            return fellows;
+                        }
+                    }
+                });
+            </script>
         </code></pre>
     </section>
 
@@ -496,34 +529,31 @@
     <section>
         <h3>SimpleController</h3>
         <pre><code contenteditable ng-non-bindable>
-    <script>
-        myApp.controller('SimpleController',
-                function($scope, SimpleFactory){
+            <script>
+                myApp.controller('SimpleController',
+                        function($scope, SimpleFactory){
 
-            $scope.fellows = SimpleFactory.getFellows();
+                            $scope.fellows = SimpleFactory.getFellows();
 
-            $scope.addFellow = function(){
-                $scope.fellows.push({
-                    name: $scope.newFellow.name,
-                    from: $scope.newFellow.from
-                });
-            }
-        });
-    </script>
+                            $scope.addFellow = function(){
+                                $scope.fellows.push({
+                                    name: $scope.newFellow.name,
+                                    from: $scope.newFellow.from
+                                });
+                            }
+                        });
+            </script>
         </code></pre>
     </section>
+</section>
 
-
-
-    <!-- Plug -->
-    <section>
-        <h3>Summary</h3>
-
-    </section>
 
     <section>
         <h1>Thank you</h1>
-        <h3>Questions?</h3>
+        <br />
+        <br />
+        <br />
+        <h2>Any Questions?</h2>
     </section>
 
     </div>
@@ -541,9 +571,12 @@
         controls: true,
         progress: true,
         history: true,
-        center: true,
+        center: false,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        width: 1280,
+        height: 720,
+
+        theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js

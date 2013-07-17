@@ -21,3 +21,14 @@
 .black-back {
     background-color : black;
 }
+
+ul {
+    list-style-image: url('../img/symbol-check.png');
+}
+.reveal ul li {
+    padding-top: -30px; !important
+}
+.reveal div.left {
+    text-align: left;
+    margin-left: 100px;
+}

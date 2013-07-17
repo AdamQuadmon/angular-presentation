@@ -1,8 +1,16 @@
-Filter by Value: <input type="text" ng-model="fName" />
+<div class="left">
+    <div>
 
-<p ng-repeat="fellow in fellows | filter:fName | orderBy:'name'">
-    {{ fellow.name }} - {{ fellow.from }}
-</p>
+        Filter by Value: <input type="text" ng-model="name"/>
+    </div>
 
+    <br /><br />
+    <ul>
+        <li ng-repeat="fellow in fellows | filter:name | orderBy:'name'">
+            {{ fellow.name }} - {{ fellow.from }}
+        </li>
+    </ul>
+    <br />
 
-<a href="#/26">View1</a>
+    <a href="#/{{ view1 }}">View1</a>
+</div>
