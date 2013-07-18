@@ -39,9 +39,9 @@
 
         var _fellows = [
             {name: 'Luciano',   from: 'Italy'},
-            {name: 'ayahm',     from: 'Sirya'},
+            {name: 'Ayham',     from: 'Syria'},
             {name: 'geshan',    from: 'Nepal'},
-            {name: 'halal',     from: 'Lebanon'}
+            {name: 'Hallal',     from: 'Lebanon'}
         ]
 
         myApp2.config(function($routeProvider){
@@ -183,13 +183,26 @@
 </section>
 
 
+<section>
+    <section>
+        <h1>Software/Libraries Used</h1><br /><br /><br /><br />
+        <ul>
+            <li class="fragment fade-in">Node.js</li>
+            <li class="fragment fade-in">YeoMan</li>
+            <li class="fragment fade-in">Grunt</li>
+            <li class="fragment fade-in">Bower</li>
+        </ul>
+    </section>
+</section>
+
+
 
 <section>
 
     <section>
         <h3>Directives & Data binding</h3>
     <pre><code contenteditable ng-non-bindable>
-    <div ng-init="names=['Luciano', 'Ayahm', 'Geshan', 'Halal']"></div>
+    <div ng-init="names=['Luciano', 'Ayham', 'Geshan', 'Hallal']"></div>
 
     <ul>
         <li ng-repeat="personName in names">{{ personName }}</li>
@@ -198,7 +211,7 @@
     </section>
 
     <section>
-        <div ng-init="names=['Luciano', 'Ayahm', 'Geshan', 'Halal']">
+        <div ng-init="names=['Luciano', 'Ayham', 'Geshan', 'Hallal']">
         </div>
 
         <ul>
@@ -217,13 +230,13 @@
     <pre><code contenteditable ng-non-bindable>
         <div ng-init="fellows=[
                                 {name: 'Luciano',   from: 'Italy'},
-                                {name: 'Ayahm',     from: 'Sirya'},
+                                {name: 'Ayham',     from: 'Syria'},
                                 {name: 'Geshan',    from: 'Nepal'},
-                                {name: 'Halal',     from: 'Lebanon'}]"></div>
+                                {name: 'Hallal',     from: 'Lebanon'}]"></div>
 
         Filter by Value: <input type="text" ng-model="name" />
 
-        you'r typing: {{  name }}
+        you are typing: {{  name }}
 
         <ul>
             <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
@@ -238,13 +251,13 @@
 
             <div ng-init="fellows=[
                                 {name: 'Luciano',   from: 'Italy'},
-                                {name: 'ayahm',     from: 'Sirya'},
-                                {name: 'geshan',    from: 'Nepal'},
-                                {name: 'halal',     from: 'Lebanon'}
+                                {name: 'Ayham',     from: 'Syria'},
+                                {name: 'Geshan',    from: 'Nepal'},
+                                {name: 'Hallal',     from: 'Lebanon'}
                                 ]">
 
                 Filter by Value: <input type="text" ng-model="name" /><br />
-                you'r typing: {{ name }}<br /><br />
+                you are typing: {{ name }}<br /><br />
             </div>
 
             <ul>
@@ -267,9 +280,9 @@
             function SimpleController($scope){
                 $scope.fellows = [
                                     {name: 'Luciano',   from: 'Italy'},
-                                    {name: 'ayahm',     from: 'Sirya'},
-                                    {name: 'geshan',    from: 'Nepal'},
-                                    {name: 'halal',     from: 'Lebanon'}];
+                                    {name: 'Ayham',     from: 'Syria'},
+                                    {name: 'Geshan',    from: 'Nepal'},
+                                    {name: 'Hallal',     from: 'Lebanon'}];
             }
         </script>
     </code></pre>
@@ -282,7 +295,7 @@
 
             Filter by Value: <input type="text" ng-model="name" />
 
-            you'r typing: {{ name }}
+            you are typing: {{ name }}
 
             <ul>
                 <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
@@ -299,9 +312,9 @@
             {
                 $scope.fellows = [
                     {name: 'Luciano',   from: 'Italy'},
-                    {name: 'ayahm',     from: 'Sirya'},
-                    {name: 'geshan',    from: 'Nepal'},
-                    {name: 'halal',     from: 'Lebanon'}
+                    {name: 'Ayham',     from: 'Syria'},
+                    {name: 'Geshan',    from: 'Nepal'},
+                    {name: 'Hallal',     from: 'Lebanon'}
                 ];
             }
         </script>
@@ -309,7 +322,7 @@
             <div ng-controller="SimpleController">
 
                 Filter by Value: <input type="text" ng-model="name" /><br />
-                you'r typing: {{ name }}<br /><br />
+                you are typing: {{ name }}<br /><br />
                 <ul>
                     <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">{{ fellow.name }} - {{ fellow.from }}</li>
                 </ul>
@@ -342,9 +355,9 @@
             myApp.controller('SimpleController', function($scope){
                 $scope.fellows = [
                                     {name: 'Luciano',   from: 'Italy'},
-                                    {name: 'ayahm',     from: 'Sirya'},
-                                    {name: 'geshan',    from: 'Nepal'},
-                                    {name: 'halal',     from: 'Lebanon'}
+                                    {name: 'Ayham',     from: 'Syria'},
+                                    {name: 'Geshan',    from: 'Nepal'},
+                                    {name: 'Hallal',     from: 'Lebanon'}
                 ];
             });
         </script>
@@ -359,7 +372,7 @@
 
                 Filter by Value: <input type="text" ng-model="name" />
 
-                you'r typing: {{ name }}
+                you are typing: {{ name }}
 
                 <ul>
                     <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
@@ -376,7 +389,7 @@
         <div ng-controller="SimpleController">
 
             Filter by Value: <input type="text" ng-model="name" /><br />
-            you'r typing: {{ name }}<br /><br />
+            you are typing: {{ name }}<br /><br />
 
             <ul>
                 <li ng-repeat="fellow in fellows | filter:name | orderBy:'from'">
@@ -431,9 +444,9 @@
                 myApp.controller('SimpleController', function($scope){
                     $scope.fellows = [
                                         {name: 'Luciano',   from: 'Italy'},
-                                        {name: 'ayahm',     from: 'Sirya'},
-                                        {name: 'geshan',    from: 'Nepal'},
-                                        {name: 'halal',     from: 'Lebanon'}
+                                        {name: 'Ayham',     from: 'Syria'},
+                                        {name: 'Geshan',    from: 'Nepal'},
+                                        {name: 'Hallal',     from: 'Lebanon'}
                     ];
                     $scope.addFellow = function(){
                         $scope.fellows.push({
@@ -514,9 +527,9 @@
                         getFellows: function () {
                             var fellows = [
                                             {name: 'Luciano',   from: 'Italy'},
-                                            {name: 'ayahm',     from: 'Sirya'},
-                                            {name: 'geshan',    from: 'Nepal'},
-                                            {name: 'halal',     from: 'Lebanon'}];
+                                            {name: 'Ayham',     from: 'Syria'},
+                                            {name: 'Geshan',    from: 'Nepal'},
+                                            {name: 'Hallal',     from: 'Lebanon'}];
                             return fellows;
                         }
                     }
